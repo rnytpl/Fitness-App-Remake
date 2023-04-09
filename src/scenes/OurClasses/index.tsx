@@ -8,6 +8,7 @@ import {
   Typography,
   Container,
   Button,
+  Divider
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Image1 from "@/assets/image1.png";
@@ -76,7 +77,7 @@ const OurClasses = () => {
     <Container
       sx={{
         width: "100vw",
-        marginTop: "2rem",
+        marginTop: "2rem"
       }}
     >
       <Grid
@@ -95,7 +96,7 @@ const OurClasses = () => {
             laudantium praesentium, incidunt ipsa similique!
           </Typography>
         </Grid>
-        <Grid item md={6} overflow="hidden">
+        <Grid item md={6} overflow="hidden" marginBottom="3rem">
           <Box display="flex" position="relative">
             <Button
               onClick={() => handleClickPrev()}
@@ -140,6 +141,7 @@ const OurClasses = () => {
           </Box>
         </Grid>
       </Grid>
+      <Divider />
     </Container>
   );
 };

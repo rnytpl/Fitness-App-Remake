@@ -1,17 +1,50 @@
-import { Box, Container, Typography, Grid, useTheme } from "@mui/material";
-import StyledLink from "@/shared/StyledLink";
+import { Box, Container, Typography, Grid, useTheme, TextField, Button } from "@mui/material";
+import * as yup from 'yup';
+import { useFormik } from 'formik';
 
 type Props = {};
 
+const validationSchema = yup.object({
+  name: yup.string().required(),
+  email: yup.string().email().required(),
+  message: yup.string().required(),
+});
+
+
+interface User extends yup.InferType<typeof validationSchema> {
+  name: string,
+  message: string,
+  email: string
+}
+
 const Contact = (props: Props) => {
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  })
+
   const { palette } = useTheme();
   return (
     <Container
       sx={{
         width: "100vw",
         marginTop: "3rem",
+        padding: "2rem 0"
       }}
     >
+      <Box textAlign="center">
+        <Typography variant="h4">
+          Contact Us!
+        </Typography>
+      </Box>
       <Grid
         container
         marginTop="3rem"
@@ -19,7 +52,54 @@ const Contact = (props: Props) => {
         alignItems="center"
       >
         <Grid item md={6}>
-          hah
+          <form onSubmit={formik.handleSubmit}>
+            <TextField
+              fullWidth
+              id="name"
+              name="name"
+              label="Name"
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              error={formik.touched.name && Boolean(formik.errors.name)}
+              helperText={formik.touched.name && formik.errors.name}
+              sx={{
+                marginBottom: "1rem"
+              }}
+            />
+            <TextField
+              fullWidth
+              id="email"
+              name="email"
+              label="Email"
+              type="email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+              sx={{
+                marginBottom: "1rem"
+              }}
+            />
+            <TextField
+              fullWidth
+              id="message"
+              name="message"
+              label="Message"
+              type="message"
+              value={formik.values.message}
+              onChange={formik.handleChange}
+              error={formik.touched.message && Boolean(formik.errors.message)}
+              helperText={formik.touched.message && formik.errors.message}
+              multiline
+              rows={6}
+              sx={{
+                marginBottom: "1rem"
+              }}
+            />
+            <Button color="primary" variant="contained" fullWidth type="submit">
+              Submit
+            </Button>
+          </form>
         </Grid>
         <Grid item md={6} textAlign="center" position="relative">
           <Typography position="relative" variant="h4">

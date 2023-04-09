@@ -7,6 +7,7 @@ import {
   Grid,
   Container,
   useTheme,
+  Divider
 } from "@mui/material";
 import RocketLaunchSharpIcon from "@mui/icons-material/RocketLaunchSharp";
 import SchoolSharpIcon from "@mui/icons-material/SchoolSharp";
@@ -98,6 +99,7 @@ const Benefits = (props: Props) => {
       <Grid
         container
         marginTop="3rem"
+        marginBottom="3rem"
         justifyContent="center"
         alignItems="center"
       >
@@ -124,14 +126,15 @@ const Benefits = (props: Props) => {
           <img
             style={{
               position: "absolute",
-              bottom: -95,
-              right: -65,
+              bottom: -100,
+              right: 10,
               zIndex: -1,
             }}
             src={Sparkles}
           />
         </Grid>
       </Grid>
+      <Divider />
     </Container>
   );
 };
