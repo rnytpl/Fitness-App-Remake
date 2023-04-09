@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Raleway:wght@400;700;800&display=swap");
+
+html,
+body,
+#root,
+.app {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to right top,
+    #fbe5f2,
+    #f0e0ed,
+    #e6dce6,
+    #dcd7df,
+    #d4d2d7,
+    #d1ced8,
+    #cec9da,
+    #cbc5db,
+    #cdc0e6,
+    #d0baef,
+    #d5b3f8,
+    #dbacff
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
