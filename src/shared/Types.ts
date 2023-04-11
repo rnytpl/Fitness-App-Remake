@@ -3,3 +3,10 @@ export interface ClassType {
   description?: string;
   image: string;
 }
+
+export enum SelectedPage {
+  Home = "home",
+  Benefits = "benefits",
+  ContactUs = "contactus",
+  OurClasses = "ourclasses",
+}

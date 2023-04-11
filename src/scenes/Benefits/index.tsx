@@ -7,7 +7,7 @@ import {
   Grid,
   Container,
   useTheme,
-  Divider
+  Divider,
 } from "@mui/material";
 import RocketLaunchSharpIcon from "@mui/icons-material/RocketLaunchSharp";
 import SchoolSharpIcon from "@mui/icons-material/SchoolSharp";
@@ -15,16 +15,20 @@ import Diversity3SharpIcon from "@mui/icons-material/Diversity3Sharp";
 import BenefitGraphic from "@/assets/BenefitsPageGraphic.png";
 import AbstractWaves from "@/assets/AbstractWaves.png";
 import Sparkles from "@/assets/Sparkles.png";
+import Link from "../Navbar/Link";
+import { SelectedPage } from "@/shared/Types";
 
-import StyledLink from "@/shared/StyledLink";
+type Props = {
+  selectedPage: SelectedPage;
+  setSelectedPage: (value: SelectedPage) => void;
+};
 
-type Props = {};
-
-const Benefits = (props: Props) => {
+const Benefits = ({ selectedPage, setSelectedPage }: Props) => {
   const { palette } = useTheme();
 
   return (
     <Container
+      id="benefits"
       sx={{
         width: "100vw",
         marginTop: "2rem",
@@ -55,7 +59,7 @@ const Benefits = (props: Props) => {
               Eveniet,earum incidunt.
             </Typography>
           </Box>
-          <StyledLink to="/learnmore" children="Learn More" />
+          {/* <Link to="/learnmore" children="Learn More" /> */}
         </Grid>
         <Grid
           item
@@ -74,7 +78,7 @@ const Benefits = (props: Props) => {
               Eveniet,earum incidunt.
             </Typography>
           </Box>
-          <StyledLink to="/learnmore" children="Learn More" />
+          {/* <StyledLink to="/learnmore" children="Learn More" /> */}
         </Grid>
         <Grid
           item
@@ -93,7 +97,7 @@ const Benefits = (props: Props) => {
               Eveniet,earum incidunt.
             </Typography>
           </Box>
-          <StyledLink to="/learnmore" children="Learn More" />
+          {/* <StyledLink to="/learnmore" children="Learn More" /> */}
         </Grid>
       </Grid>
       <Grid

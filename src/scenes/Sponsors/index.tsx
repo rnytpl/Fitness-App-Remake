@@ -2,7 +2,7 @@ import Redbull from "@/assets/SponsorRedBull.png";
 import Forbes from "@/assets/SponsorForbes.png";
 import Fortune from "@/assets/SponsorFortune.png";
 import { useTheme } from "@mui/material/styles";
-import { Grid, Box } from "@mui/material";
+import { Grid, Box, Container } from "@mui/material";
 
 type Props = {};
 
@@ -14,11 +14,10 @@ const Sponsors = (props: Props) => {
       sx={{
         backgroundColor: palette.primary.dark,
         minHeight: "4rem",
-        width: "100vw",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        py: "1rem",
+        py: "2rem",
       }}
     >
       <Grid

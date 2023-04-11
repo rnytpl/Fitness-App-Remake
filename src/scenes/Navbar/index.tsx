@@ -6,29 +6,26 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { Link } from "react-router-dom";
 import Logo from "@/assets/Logo.png";
 import { motion } from "framer-motion";
-import { styled } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useEffect, useState } from "react";
-type Props = {};
+import { SelectedPage } from "@/shared/Types";
+import Link from "./Link";
 
-const Navbar = (props: Props) => {
+type Props = {
+  selectedPage: SelectedPage;
+  setSelectedPage: (value: SelectedPage) => void;
+};
+
+const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
   const { palette } = useTheme();
   const pageTags = ["Home", "Benefits", "Our Classes", "Contact Us"];
-  const StyledLink = styled(Link)({
-    textDecoration: "none",
-    color: palette.secondary.main,
-    fontWeight: 400,
-    letterSpacing: "0.10rem",
-    fontSize: "1.1rem",
-  });
+
   const isNonMobileScreen = useMediaQuery("(min-width:1090px");
   const [y, setY] = useState<number>(0);
 
   useEffect(() => {
-    const scroll = window.scrollY;
     window.addEventListener("scroll", () => setY(window.scrollY));
   });
 
@@ -36,14 +33,13 @@ const Navbar = (props: Props) => {
     <Box
       sx={{
         height: "3rem",
-        position: y > 0 ? "fixed" : "",
         width: "100%",
+        position: y > 0 ? "fixed" : "",
         color: "white",
         backgroundColor: y > 0 ? `${palette.primary.dark}` : "",
         zIndex: 99,
         padding: "1rem 0",
         transition: "0 0.5s background-color",
-        margin: "auto",
       }}
     >
       {isNonMobileScreen ? (
@@ -60,8 +56,15 @@ const Navbar = (props: Props) => {
               </motion.div>
             </Box>
             {pageTags.map((page) => (
-              <Typography key={page} sx={{ marginRight: "1rem" }}>
-                <StyledLink to={`/${page}`}>{page}</StyledLink>
+              <Typography
+                key={page}
+                sx={{ marginRight: "1rem", color: palette.secondary.main }}
+              >
+                <Link
+                  page={page}
+                  setSelectedPage={setSelectedPage}
+                  selectedPage={selectedPage}
+                />
               </Typography>
             ))}
           </Box>

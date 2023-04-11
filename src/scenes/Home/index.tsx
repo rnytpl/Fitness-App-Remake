@@ -5,24 +5,28 @@ import {
   useMediaQuery,
   Grid,
   useTheme,
+  Container,
 } from "@mui/material";
 import HomePageGraphic from "@/assets/HomePageGraphic.png";
 import HomePageText from "@/assets/HomePageText.png";
 import EvolveText from "@/assets/EvolveText.png";
 import { Link } from "react-router-dom";
+import { SelectedPage } from "@/shared/Types";
 
-type Props = {};
+type Props = {
+  selectedPage: SelectedPage;
+  setSelectedPage: (value: SelectedPage) => void;
+};
 
-const Home = (props: Props) => {
-  const { palette } = useTheme();
+const Home = ({ selectedPage, setSelectedPage }: Props) => {
   const isNonMobileScreen = useMediaQuery("(min-width:1200px)");
   const twoKScreen = useMediaQuery("(min-width:2000px");
   const largeScreen = useMediaQuery("(min-width:1600px");
   return (
-    <Box
+    <Container
+      id="home"
       sx={{
         width: twoKScreen ? "60%" : largeScreen ? "75%" : "80%",
-        margin: "auto",
       }}
     >
       <Grid
@@ -75,7 +79,7 @@ const Home = (props: Props) => {
           />
         </Grid>
       </Grid>
-    </Box>
+    </Container>
   );
 };
 

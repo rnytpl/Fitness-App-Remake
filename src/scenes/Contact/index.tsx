@@ -1,8 +1,14 @@
-import { Box, Container, Typography, Grid, useTheme, TextField, Button } from "@mui/material";
-import * as yup from 'yup';
-import { useFormik } from 'formik';
-
-type Props = {};
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  TextField,
+  Button,
+} from "@mui/material";
+import * as yup from "yup";
+import { useFormik } from "formik";
+import { SelectedPage } from "@/shared/Types";
 
 const validationSchema = yup.object({
   name: yup.string().required(),
@@ -10,15 +16,18 @@ const validationSchema = yup.object({
   message: yup.string().required(),
 });
 
-
 interface User extends yup.InferType<typeof validationSchema> {
-  name: string,
-  message: string,
-  email: string
+  name: string;
+  message: string;
+  email: string;
 }
 
-const Contact = (props: Props) => {
+type Props = {
+  selectedPage: SelectedPage;
+  setSelectedPage: (value: SelectedPage) => void;
+};
 
+const Contact = ({ selectedPage, setSelectedPage }: Props) => {
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -29,28 +38,21 @@ const Contact = (props: Props) => {
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
     },
-  })
+  });
 
-  const { palette } = useTheme();
   return (
     <Container
+      id="contactus"
       sx={{
         width: "100vw",
         marginTop: "3rem",
-        padding: "2rem 0"
+        padding: "2rem 0",
       }}
     >
       <Box textAlign="center">
-        <Typography variant="h4">
-          Contact Us!
-        </Typography>
+        <Typography variant="h4">Contact Us!</Typography>
       </Box>
-      <Grid
-        container
-        marginTop="3rem"
-        justifyContent="center"
-        alignItems="center"
-      >
+      <Grid container marginTop="3rem">
         <Grid item md={6}>
           <form onSubmit={formik.handleSubmit}>
             <TextField
@@ -63,7 +65,7 @@ const Contact = (props: Props) => {
               error={formik.touched.name && Boolean(formik.errors.name)}
               helperText={formik.touched.name && formik.errors.name}
               sx={{
-                marginBottom: "1rem"
+                marginBottom: "1rem",
               }}
             />
             <TextField
@@ -77,7 +79,7 @@ const Contact = (props: Props) => {
               error={formik.touched.email && Boolean(formik.errors.email)}
               helperText={formik.touched.email && formik.errors.email}
               sx={{
-                marginBottom: "1rem"
+                marginBottom: "1rem",
               }}
             />
             <TextField
@@ -93,7 +95,7 @@ const Contact = (props: Props) => {
               multiline
               rows={6}
               sx={{
-                marginBottom: "1rem"
+                marginBottom: "1rem",
               }}
             />
             <Button color="primary" variant="contained" fullWidth type="submit">
@@ -101,11 +103,11 @@ const Contact = (props: Props) => {
             </Button>
           </form>
         </Grid>
-        <Grid item md={6} textAlign="center" position="relative">
-          <Typography position="relative" variant="h4">
+        <Grid item md={6} padding="1rem 2rem 2rem 2rem">
+          <Typography variant="h4" marginBottom="2rem">
             MILLIONS OF HAPPY MEMBERS GETTING FIT
           </Typography>
-          <Typography position="relative">
+          <Typography>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             Reprehenderit voluptatem odit excepturi placeat totam adipisci
             veritatis eligendi reiciendis vitae, a cumque eum nisi mollitia in

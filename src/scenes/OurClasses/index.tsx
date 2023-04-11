@@ -1,14 +1,11 @@
 import { useState } from "react";
 import {
-  Slide,
-  FormControlLabel,
   Box,
-  Switch,
   Grid,
   Typography,
   Container,
   Button,
-  Divider
+  Divider,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Image1 from "@/assets/image1.png";
@@ -17,7 +14,7 @@ import Image3 from "@/assets/image3.png";
 import Image4 from "@/assets/image4.png";
 import Image5 from "@/assets/image5.png";
 import Image6 from "@/assets/image6.png";
-import { ClassType } from "@/shared/Types";
+import { ClassType, SelectedPage } from "@/shared/Types";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
@@ -60,9 +57,12 @@ const classes: Array<ClassType> = [
   },
 ];
 
-type Props = {};
+type Props = {
+  selectedPage: SelectedPage;
+  setSelectedPage: (value: SelectedPage) => void;
+};
 
-const OurClasses = () => {
+const OurClasses = ({ selectedPage, setSelectedPage }: Props) => {
   const { palette } = useTheme();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const handleClickPrev = () => {
@@ -75,9 +75,10 @@ const OurClasses = () => {
 
   return (
     <Container
+      id="ourclasses"
       sx={{
         width: "100vw",
-        marginTop: "2rem"
+        marginTop: "2rem",
       }}
     >
       <Grid
