@@ -4,7 +4,7 @@ Description:
 Full-responsive, Gym Landing page 
 
 Tech Stack:
-Typescript for type control
+Typescript for type control /b
 Material UI for overall layout and styling of the page
 Framer Motion for small, easy to eye animations
 Formik to handle form submits
