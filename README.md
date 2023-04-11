@@ -1,13 +1,13 @@
 # Fitness-App-Remake
 
-Description:
+Description: <br>
 Full-responsive, Gym Landing page 
 
-Tech Stack:
-Typescript for type control /b
-Material UI for overall layout and styling of the page
-Framer Motion for small, easy to eye animations
-Formik to handle form submits
+Tech Stack:<br>
+Typescript for type control <br>
+Material UI for overall layout and styling of the page<br>
+Framer Motion for small, easy to eye animations<br>
+Formik to handle form submits<br>
 
 
 ![image](https://user-images.githubusercontent.com/101862742/231022044-bc2b8bb9-b065-4584-b0dc-f996bc46eda4.png)
