@@ -1,7 +1,7 @@
 # Fitness-App-Remake
 
 Description: <br>
-Full-responsive, Gym Landing page 
+Responsive, Gym Landing page 
 
 Tech Stack:<br>
 Typescript for type control <br>
