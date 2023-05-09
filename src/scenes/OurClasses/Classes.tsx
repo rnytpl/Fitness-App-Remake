@@ -1,6 +1,4 @@
-import { ClassTypes } from "@/shared/Types";
-
-const Classes = ({}: Props) => {
+const Classes = () => {
   return <div>Classes</div>;
 };
 export default Classes;
